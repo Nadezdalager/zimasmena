@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Тайны Северного Королевства | Зимняя смена лагеря «Город Надежда»</title>
+  <meta name="description" content="Зимняя ролевая смена лагеря «Город Надежда» для подростков 10–17 лет: сюжетная игра, творчество, приключения и командные испытания. Стоимость путёвки — 49 000 рублей.">
+  <link rel="canonical" href="https://peru.ru/">
+
+  <!-- Open Graph: превью ссылки в социальных сетях и мессенджерах -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Лагерь «Город Надежда»">
+  <meta property="og:title" content="Тайны Северного Королевства — зимняя смена «Город Надежда»">
+  <meta property="og:description" content="Зимняя ролевая смена для подростков 10–17 лет: творчество, приключения и командные испытания. Стоимость путёвки — 49 000 рублей.">
+  <meta property="og:url" content="https://peru.ru/">
+  <meta property="og:image" content="https://peru.ru/logo_nadejda.png">
+  <meta property="og:image:alt" content="Логотип лагеря «Город Надежда»">
+
+  <!-- Twitter/X link preview -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Тайны Северного Королевства — зимняя смена «Город Надежда»">
+  <meta name="twitter:description" content="Зимняя ролевая смена для подростков 10–17 лет. Стоимость путёвки — 49 000 рублей.">
+  <meta name="twitter:image" content="https://peru.ru/logo_nadejda.png">
+
+  
+  <!-- Единый шрифт всего проекта: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ----------------------------------------------------
+       ЕДИНЫЙ ШРИФТ И СИСТЕМА СТИЛЕЙ DRUJITE (ЗИМА)
+    ---------------------------------------------------- */
+    :root {
+      --bg-body: #060d1a;
+      --bg-section: #0a1528;
+      --bg-card: #101f38;
+      --bg-card-hover: #162a4d;
+      
+      --color-primary: #00c2ff;       /* Ледяной лазурный */
+      --color-primary-glow: rgba(0, 194, 255, 0.28);
+      --color-accent-gold: #ffb703;   /* Королевское золото */
+      
+      --text-main: #ffffff;
+      --text-muted: #9bb0cf;
+      --text-dim: #657e9f;
+      
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-frost: rgba(0, 194, 255, 0.3);
+      --border-gold: rgba(255, 183, 3, 0.35);
+      
+      --radius-pill: 50px;
+      --radius-card: 20px;
+      --radius-sm: 12px;
+      
+      --font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: var(--font-main);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #snow-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* КНОПКИ */
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      min-height: 48px;
+    }
+
+    .btn-nav-gold {
+      background: linear-gradient(135deg, #ffd166 0%, var(--color-accent-gold) 60%, #f48c06 100%);
+      color: #120900;
+      box-shadow: 0 6px 20px rgba(255, 183, 3, 0.35);
+    }
+
+    .btn-nav-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(255, 183, 3, 0.5);
+    }
+
+    .btn-nav-ghost {
+      background: rgba(16, 31, 56, 0.75);
+      border: 1px solid var(--border-frost);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-nav-ghost:hover {
+      background: rgba(0, 194, 255, 0.2);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    /* ----------------------------------------------------
+       ВЕРХНЯЯ СТРОКА (TOPBAR)
+    ---------------------------------------------------- */
+    .topbar {
+      background: rgba(4, 9, 18, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 8px 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 101;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .topbar-tags {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .topbar-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .topbar-highlight {
+      color: var(--color-accent-gold);
+      font-weight: 700;
+    }
+
+    /* ----------------------------------------------------
+       ШАПКА (HEADER) И НАДЕЖНЫЕ ПОДЛОЖКИ ПОД ЛОГОТИПЫ
+    ---------------------------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 13, 26, 0.95);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 82px;
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-substrate {
+      background: #ffffff !important;
+      border: 1.5px solid var(--border-frost);
+      box-shadow: 0 4px 16px rgba(0, 194, 255, 0.25);
+      border-radius: 10px;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      min-height: 48px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-unit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo-pic {
+      height: 40px;
+      max-width: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-logo-fallback-svg {
+      width: 40px;
+      height: 40px;
+      display: block;
+    }
+
+    .brand-desc {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-role-lbl {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--color-primary);
+    }
+
+    .brand-role-lbl.partner {
+      color: var(--color-accent-gold);
+    }
+
+    .brand-main-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* КОМПАКТНОЕ МЕНЮ */
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 7px 11px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .main-nav a:hover {
+      color: #fff;
+      background: rgba(0, 194, 255, 0.1);
+    }
+
+    .mobile-burger-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-frost);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* ----------------------------------------------------
+       1. ГЛАВНЫЙ ЭКРАН (HERO) С ФОНОМ БАЗЫ
+    ---------------------------------------------------- */
+    .hero {
+      position: relative;
+      padding: 75px 0 0;
+      overflow: hidden;
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: flex-end;
+      background-image: 
+        linear-gradient(90deg, rgba(6, 13, 26, 0.94) 0%, rgba(6, 13, 26, 0.78) 50%, rgba(6, 13, 26, 0.38) 100%),
+        linear-gradient(180deg, rgba(6, 13, 26, 0.6) 0%, rgba(6, 13, 26, 0.2) 30%, rgba(6, 13, 26, 0.92) 85%, #060d1a 100%),
+        url('photo_aerial.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .hero-left-content {
+      padding-bottom: 60px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-pill-age {
+      background: var(--color-accent-gold);
+      color: #120900;
+      font-weight: 800;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .hero-pill-season {
+      background: rgba(0, 194, 255, 0.16);
+      border: 1px solid var(--border-frost);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-size: 54px;
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 40%, #cce9ff 80%, #70b4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: #d1e2f9;
+      margin-bottom: 24px;
+      line-height: 1.55;
+      max-width: 620px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .hero-subtitle strong {
+      color: #fff;
+    }
+
+    .hero-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14.5px;
+      color: #edf4ff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+
+    .hero-chk {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(0, 194, 255, 0.25);
+      border: 1px solid var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .hero-links-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-characters-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+    }
+
+    .hero-characters-stage::before {
+      content: '';
+      position: absolute;
+      bottom: 60px;
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, rgba(0, 194, 255, 0.3) 0%, rgba(37, 117, 252, 0.15) 50%, transparent 75%);
+      pointer-events: none;
+      z-index: 1;
+      filter: blur(25px);
+    }
+
+    .hero-characters-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      max-height: 640px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.9)) 
+              drop-shadow(0 0 25px rgba(0, 194, 255, 0.25));
+      transition: transform 0.4s ease;
+    }
+
+    .hero-characters-img:hover {
+      transform: scale(1.02);
+    }
+
+    .hero-characters-caption {
+      position: relative;
+      z-index: 3;
+      margin-top: -20px;
+      margin-bottom: 25px;
+      background: rgba(6, 13, 26, 0.92);
+      border: 1px solid var(--border-frost);
+      backdrop-filter: blur(14px);
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-characters-caption h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .hero-characters-caption p {
+      font-size: 11.5px;
+      color: var(--color-accent-gold);
+      font-weight: 700;
+    }
+
+    /* ----------------------------------------------------
+       БАР ПОКАЗАТЕЛЕЙ (TRUST BAR)
+    ---------------------------------------------------- */
+    .parameters-strip {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+      padding: 34px 0;
+    }
+
+    .parameters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .parameter-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .parameter-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(0, 194, 255, 0.1);
+      border: 1px solid var(--border-frost);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .parameter-box h4 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .parameter-box p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ОБЩИЙ СТИЛЬ СЕКЦИЙ */
+    section {
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .sec-head {
+      max-width: 800px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .sec-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-accent-gold);
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .sec-title {
+      font-size: 38px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .sec-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------
+       2. ЛЕГЕНДА: КРУПНОЕ ФОТО В 2 РАЗА БОЛЬШЕ + ОБТЕКАНИЕ
+    ---------------------------------------------------- */
+    .story-editorial-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .story-editorial-content {
+      display: block;
+    }
+
+    /* Фотография увеличена в 2 раза (560px ширина вместо 360px) */
+    .story-single-photo {
+      float: right;
+      width: 560px;
+      max-width: 48%;
+      margin: 0 0 32px 36px;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1.5px solid var(--border-frost);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 194, 255, 0.15);
+      background: #0d1a2d;
+    }
+
+    .story-single-photo img {
+      width: 100%;
+      height: auto;
+      max-height: 540px;
+      display: block;
+      opacity: 1 !important;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .story-single-photo:hover img {
+      transform: scale(1.03);
+    }
+
+    .story-editorial-text p {
+      font-size: 16px;
+      color: #e3efff;
+      margin-bottom: 20px;
+      line-height: 1.75;
+    }
+
+    .story-editorial-quote {
+      border-left: 3px solid var(--color-accent-gold);
+      padding: 16px 22px;
+      font-size: 16.5px;
+      font-style: italic;
+      color: var(--color-accent-gold);
+      margin: 24px 0;
+      background: rgba(6, 13, 26, 0.7);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      line-height: 1.6;
+    }
+
+    .story-mechanics-row {
+      clear: both;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .story-mechanic-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 22px 20px;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+
+    .story-mechanic-card:hover {
+      background: rgba(0, 194, 255, 0.08);
+      border-color: var(--border-frost);
+      transform: translateY(-4px);
+    }
+
+    .story-mechanic-card h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .story-mechanic-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .tracks-tag-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 183, 3, 0.1);
+      border: 1px solid var(--border-gold);
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent-gold);
+      margin-bottom: 34px;
+    }
+
+    .tracks-deck {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .track-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .track-tile:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-frost);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .track-tile-tag {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .track-tile-icon {
+      font-size: 38px;
+      margin-bottom: 14px;
+    }
+
+    .track-tile h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .track-tile p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ----------------------------------------------------
+       4. РАСПОРЯДОК ДНЯ В СМЕНЕ
+    ---------------------------------------------------- */
+    .schedule-deck {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .schedule-item-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-item-card:hover {
+      border-color: var(--border-frost);
+      transform: translateY(-4px);
+    }
+
+    .schedule-time-badge {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--color-primary);
+      background: rgba(0, 194, 255, 0.12);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .schedule-item-card.featured {
+      border-color: var(--border-gold);
+      background: linear-gradient(180deg, rgba(255, 183, 3, 0.08) 0%, var(--bg-card) 100%);
+    }
+
+    .schedule-item-card.featured .schedule-time-badge {
+      color: var(--color-accent-gold);
+      background: rgba(255, 183, 3, 0.16);
+    }
+
+    .schedule-item-card h4 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .schedule-item-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ----------------------------------------------------
+       5. ВЫЕЗД В КОСТРОМУ (СРАЗУ ПОСЛЕ РАСПОРЯДКА ДНЯ)
+    ---------------------------------------------------- */
+    .trip-deck {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .trip-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .trip-card:hover {
+      border-color: var(--border-frost);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+    }
+
+    .trip-photo-frame {
+      height: 200px;
+      background: #050c18;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .trip-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      opacity: 1 !important;
+    }
+
+    .trip-card:hover .trip-photo-frame img {
+      transform: scale(1.05);
+    }
+
+    .trip-photo-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(6, 13, 26, 0.85);
+      border: 1px solid var(--border-frost);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .trip-card-content {
+      padding: 26px 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trip-card-content h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .trip-card-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .train-feature-banner {
+      background: linear-gradient(135deg, rgba(16, 31, 56, 0.9), rgba(6, 13, 26, 0.95));
+      border: 1px solid var(--border-frost);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 15px 40px rgba(0, 194, 255, 0.12);
+    }
+
+    .train-ico-big {
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+
+    .train-feature-banner h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .train-feature-banner p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ----------------------------------------------------
+       6. БАЗА «ЭЛЕКТРОНИК» И ФОТОГАЛЕРЕЯ
+    ---------------------------------------------------- */
+    .base-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .base-photo-slot {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+      transition: all 0.3s ease;
+    }
+
+    .base-photo-slot:hover {
+      border-color: var(--border-frost);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .base-photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      opacity: 1 !important;
+    }
+
+    .base-photo-slot:hover img {
+      transform: scale(1.04);
+    }
+
+    .base-slot-tag {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      background: rgba(6, 13, 26, 0.88);
+      border: 1px solid var(--border-frost);
+      backdrop-filter: blur(8px);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .base-specs-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .base-spec-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .base-spec-ico {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .base-spec-card h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .base-spec-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ----------------------------------------------------
+       7. КОСТРОВАЯ ПОЛЯНА В ЛЕСУ
+    ---------------------------------------------------- */
+    .campfire-story-deck {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .campfire-img-box {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid rgba(255, 183, 3, 0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .campfire-img-box img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      opacity: 1 !important;
+    }
+
+    .campfire-details h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .campfire-details p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    /* ----------------------------------------------------
+       8. НАША КОМАНДА
+    ---------------------------------------------------- */
+    .team-section {
+      background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-body) 100%);
+    }
+
+    .team-lead-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 30px;
+      margin-bottom: 30px;
+      align-items: stretch;
+    }
+
+    .leader-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-frost);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leader-photo-box {
+      height: 340px;
+      background: #040812;
+      position: relative;
+    }
+
+    .leader-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      opacity: 1 !important;
+    }
+
+    .leader-content {
+      padding: 26px;
+      flex-grow: 1;
+    }
+
+    .leader-content h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .leader-role {
+      font-size: 13px;
+      color: var(--color-accent-gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .leader-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .team-photo-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .team-photo-box {
+      height: 340px;
+      background: #040812;
+      position: relative;
+    }
+
+    .team-photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1 !important;
+    }
+
+    .team-info-box {
+      padding: 26px;
+      flex-grow: 1;
+    }
+
+    .team-info-box h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .team-info-box p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .team-badges-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .team-pill {
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(0, 194, 255, 0.12);
+      border: 1px solid var(--border-frost);
+      color: var(--color-primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    /* ----------------------------------------------------
+       9. БЕЗОПАСНОСТЬ И ЗДОРОВЬЕ УЧАСТНИКОВ
+    ---------------------------------------------------- */
+    .safety-standards-deck {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .safety-standard-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 30px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .safety-standard-tile:hover {
+      border-color: var(--border-frost);
+      transform: translateY(-4px);
+    }
+
+    .safety-standard-ico {
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 194, 255, 0.1);
+      border: 1px solid var(--border-frost);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: var(--color-primary);
+    }
+
+    .safety-standard-tile h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .safety-standard-tile p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ----------------------------------------------------
+       10. ЧТО ВХОДИТ В ПРОГРАММУ И УСЛОВИЯ
+    ---------------------------------------------------- */
+    .inclusions-deck {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+
+    .inclusions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .inclusions-info h3 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .inclusions-info p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .price-status-panel {
+      background: rgba(255, 183, 3, 0.1);
+      border-left: 3px solid var(--color-accent-gold);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .price-status-lbl {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-accent-gold);
+    }
+
+    .price-status-val {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 4px;
+    }
+
+    .package-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .package-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #dbe7f7;
+    }
+
+    .package-feature span {
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    /* ----------------------------------------------------
+       11. ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ)
+    ---------------------------------------------------- */
+    .faq-stack {
+      max-width: 840px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-card-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .faq-card-item:hover {
+      border-color: var(--border-frost);
+    }
+
+    .faq-card-question {
+      padding: 22px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .faq-card-question::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--color-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-card-item.active .faq-card-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-card-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 26px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .faq-card-item.active .faq-card-answer {
+      max-height: 250px;
+      padding-bottom: 22px;
+    }
+
+    /* ----------------------------------------------------
+       ПОДВАЛ (FOOTER)
+    ---------------------------------------------------- */
+    footer {
+      background: #030812;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 60px 0 35px;
+    }
+
+    .footer-structure {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logos-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-nav-list a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer-baseline {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+
+    /* АКАДЕМИЯ БУДУЩЕГО */
+    .academy-section {
+      background: linear-gradient(180deg, var(--bg-section) 0%, var(--bg-body) 100%);
+    }
+    .academy-deck {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .academy-card {
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border-frost);
+      border-radius: var(--radius-card);
+      box-shadow: 0 18px 42px rgba(0,0,0,.3);
+    }
+    .academy-photo {
+      position: relative;
+      height: 280px;
+      background: linear-gradient(135deg, #142946, #0a1528);
+      border-bottom: 1px solid var(--border-card);
+      overflow: hidden;
+    }
+    .academy-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .academy-photo-placeholder {
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      background: radial-gradient(circle at center, rgba(0,194,255,.13), transparent 70%);
+    }
+    .academy-photo-placeholder span {
+      font-size: 38px;
+    }
+    .academy-photo-placeholder strong {
+      color: var(--color-primary);
+      font-size: 14px;
+    }
+    .academy-card-content {
+      padding: 26px;
+    }
+    .academy-card-content h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .academy-card-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .academy-note {
+      max-width: 850px;
+      margin: 28px auto 0;
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+
+    /* ПРОЕКТНАЯ ЧАСТЬ И ПЕДАГОГИЧЕСКИЙ СОСТАВ */
+    .project-section { background: linear-gradient(180deg, #10263d 0%, #0b1b2e 100%); }
+    .project-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+    .project-step { min-height:220px; padding:28px; border-radius:24px; background:rgba(255,255,255,.085); border:1px solid rgba(255,255,255,.14); transition:transform .25s ease,border-color .25s ease; }
+    .project-step:nth-child(2) { border-color:rgba(75,190,255,.55); }
+    .project-step:hover { transform:translateY(-4px); border-color:var(--color-primary); }
+    .project-icon { width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:15px; background:linear-gradient(135deg,rgba(0,194,255,.22),rgba(150,110,255,.3)); font-size:25px; margin-bottom:18px; }
+    .project-step h3 { font-size:19px; line-height:1.45; margin-bottom:12px; color:#fff; }
+    .project-step p { color:var(--text-muted); font-size:15px; line-height:1.65; }
+    .project-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin-top:30px; }
+    .project-photo-placeholder { width:100%; min-width:0; aspect-ratio:4 / 3; border-radius:20px; background:rgba(255,255,255,.045); overflow:hidden; padding:0; }
+    .project-photo-placeholder img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; border-radius:20px; }
+    .team-section { background:linear-gradient(180deg,#091626 0%,#07111e 100%); }
+    .team-intro { max-width:900px; margin:-24px auto 38px; text-align:center; color:var(--text-muted); font-size:16px; }
+    .mentor-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .mentor-card { position:relative; padding:28px 28px 28px 73px; border-radius:24px; background:rgba(255,255,255,.075); border:1px solid rgba(255,255,255,.16); min-width:0; }
+    .mentor-card::before { content:''; position:absolute; left:26px; top:31px; width:33px; height:33px; border-radius:50%; background:linear-gradient(135deg,#68c6ff,#a77aff); }
+    .mentor-card h3 { color:#fff; font-size:18px; line-height:1.4; margin:0 0 8px; }
+    .mentor-role { display:block; color:#58c5ff; font-size:12px; line-height:1.5; font-weight:800; text-transform:uppercase; margin-bottom:10px; }
+    .mentor-card p { color:#b0c2d8; font-size:14px; line-height:1.7; }
+    .team-footer-label { margin-top:34px; text-align:center; color:var(--text-muted); font-size:13px; }
+
+    /* АКАДЕМИЯ БУДУЩЕГО: направления и фотографии */
+    .workshops-section { background:linear-gradient(180deg,#0b1b2e 0%,#091626 100%); }
+    .workshops-deck { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .workshop-card { min-width:0; overflow:hidden; border-radius:22px; background:rgba(255,255,255,.065); border:1px solid rgba(255,255,255,.13); transition:transform .25s ease,border-color .25s ease; }
+    .workshop-card:hover { transform:translateY(-4px); border-color:var(--color-primary); }
+    .workshop-heading { display:flex; align-items:center; gap:13px; min-height:92px; padding:22px 24px; }
+    .workshop-icon { display:flex; align-items:center; justify-content:center; flex:0 0 48px; width:48px; height:48px; border-radius:15px; background:linear-gradient(135deg,rgba(0,194,255,.2),rgba(150,110,255,.28)); font-size:27px; }
+    .workshop-card h3 { color:#fff; font-size:18px; line-height:1.35; margin:0; }
+    .workshop-photo { width:100%; aspect-ratio:4 / 3; overflow:hidden; background:linear-gradient(135deg,rgba(0,194,255,.09),rgba(150,110,255,.10)); border-top:1px solid rgba(255,255,255,.09); }
+    .workshop-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+    @media (max-width:1024px) { .project-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .workshops-deck { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:768px) { .project-steps,.project-gallery,.mentor-grid { grid-template-columns:minmax(0,1fr); } .project-photo-placeholder { aspect-ratio:4 / 3; } .project-step { min-height:0; padding:23px; } .mentor-card { padding:24px 20px 24px 64px; } .mentor-card::before { left:19px; top:27px; width:30px; height:30px; } .team-intro { margin-top:-18px; } .workshop-heading { min-height:80px; padding:18px 20px; } }
+
+    /* ----------------------------------------------------
+       АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
+    ---------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left-content {
+        padding-bottom: 20px;
+      }
+
+      .hero-characters-stage {
+        margin-top: 30px;
+      }
+
+      .hero-characters-img {
+        max-height: 520px;
+      }
+
+      .story-single-photo {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 24px 0;
+      }
+
+      .story-single-photo img {
+        max-height: 440px;
+      }
+
+      .tracks-deck,
+      .academy-deck,
+      .base-gallery-grid,
+      .parameters-grid,
+      .schedule-deck,
+      .safety-standards-deck,
+      .trip-deck,
+      .team-lead-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .campfire-story-deck,
+      .inclusions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 42px;
+      }
+
+      .mobile-burger-btn {
+        display: block;
+      }
+
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 82px;
+        left: 0;
+        width: 100%;
+        background: rgba(6, 13, 26, 0.98);
+        border-bottom: 1px solid var(--border-frost);
+        flex-direction: column;
+        padding: 18px 24px;
+        gap: 8px;
+        z-index: 99;
+      }
+
+      .main-nav.active {
+        display: flex;
+      }
+
+      .main-nav a {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        display: none;
+      }
+
+      .navbar-inner {
+        height: 74px;
+      }
+
+      .brand-substrate {
+        min-width: 42px;
+        min-height: 42px;
+        padding: 2px 6px;
+      }
+
+      .brand-logo-pic,
+      .brand-logo-fallback-svg {
+        height: 34px;
+        width: 34px;
+      }
+
+      .brand-main-name {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .hero-subtitle {
+        font-size: 15px;
+      }
+
+      .hero-characters-img {
+        max-height: 400px;
+      }
+
+      .sec-title {
+        font-size: 26px;
+      }
+
+      .story-editorial-container {
+        padding: 24px 20px;
+      }
+
+      .story-mechanics-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tracks-deck,
+      .base-gallery-grid,
+      .parameters-grid,
+      .schedule-deck,
+      .safety-standards-deck,
+      .trip-deck,
+      .team-lead-grid,
+      .base-specs-row,
+      .footer-structure {
+        grid-template-columns: 1fr;
+      }
+
+      .inclusions-deck,
+      .campfire-story-deck,
+      .train-feature-banner {
+        padding: 22px;
+      }
+
+      .train-feature-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .btn-nav {
+        width: 100%;
+      }
+    }
+  
+    /* ДОПОЛНИТЕЛЬНАЯ АДАПТАЦИЯ «АКАДЕМИИ БУДУЩЕГО» ДЛЯ ТЕЛЕФОНОВ */
+    #academy {
+      scroll-margin-top: 84px;
+    }
+
+    #academy .academy-deck {
+      width: 100%;
+      min-width: 0;
+    }
+
+    #academy .academy-card {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #academy .academy-photo {
+      width: 100%;
+      height: 280px;
+      min-width: 0;
+    }
+
+    #academy .academy-photo img {
+      display: block;
+      max-width: none;
+    }
+
+    #academy .academy-card-content {
+      min-width: 0;
+    }
+
+    #academy .academy-card-content h3 {
+      overflow-wrap: anywhere;
+      word-break: normal;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 768px) {
+      #academy {
+        padding: 52px 0;
+        scroll-margin-top: 76px;
+      }
+
+      #academy .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      #academy .sec-head {
+        margin-bottom: 26px;
+        padding: 0 4px;
+      }
+
+      #academy .sec-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.3px;
+      }
+
+      #academy .sec-title {
+        font-size: clamp(25px, 7vw, 32px);
+        line-height: 1.18;
+        overflow-wrap: anywhere;
+      }
+
+      #academy .academy-deck {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        max-width: 480px;
+      }
+
+      #academy .academy-card {
+        width: 100%;
+        border-radius: 16px;
+      }
+
+      #academy .academy-photo {
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      #academy .academy-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      #academy .academy-photo-placeholder {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        padding: 12px;
+      }
+
+      #academy .academy-photo-placeholder span {
+        font-size: 32px;
+      }
+
+      #academy .academy-card-content {
+        padding: 15px 16px 17px;
+      }
+
+      #academy .academy-card-content h3 {
+        margin: 0;
+        font-size: clamp(18px, 5vw, 21px);
+        line-height: 1.3;
+        text-align: center;
+        text-wrap: balance;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #academy .container {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      #academy .academy-deck {
+        gap: 14px;
+      }
+
+      #academy .academy-card-content {
+        padding: 13px 10px 15px;
+      }
+
+      #academy .academy-card-content h3 {
+        font-size: 18px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Снегопад -->
+  <canvas id="snow-canvas"></canvas>
+
+  <!-- ВЕРХНЯЯ ИНФО-СТРОКА (TOPBAR) -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="topbar-tags">
+          <span>🕒 Зимняя смена 2026/2027</span>
+          <span>🌲 База «Электроник», хвойный бор</span>
+          <span>👥 Возраст участников: 10–17 лет</span>
+        </div>
+        <div class="topbar-highlight">Зимняя ролевая смена для подростков 10–17 лет</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ШАПКА САЙТА (HEADER) -->
+  <header>
+    <div class="container">
+      <div class="navbar-inner">
+        <div class="brand-cluster">
+          <!-- Организатор: Город Надежда -->
+          <div class="brand-unit" title="Организатор программы: Детский лагерь «Город Надежда»">
+            <div class="brand-substrate">
+              <img src="logo_nadejda.png" alt="Город Надежда" class="brand-logo-pic" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <svg class="brand-logo-fallback-svg" style="display:none;" viewBox="0 0 40 40">
+                <rect width="40" height="40" rx="8" fill="#ffffff"/>
+                <path d="M10 14h20v14c0 6-10 10-10 10s-10-4-10-10V14z" fill="#1b3558" stroke="#00c2ff" stroke-width="1.5"/>
+                <path d="M12 8h4v4h-4zM18 8h4v4h-4zM24 8h4v4h-4z" fill="#ffb703"/>
+                <circle cx="20" cy="22" r="4" fill="#ffb703"/>
+              </svg>
+            </div>
+            <div class="brand-desc">
+              <span class="brand-role-lbl">Организатор</span>
+              <span class="brand-main-name">Город Надежда</span>
+            </div>
+          </div>
+
+
+        </div>
+
+        <button class="mobile-burger-btn" onclick="toggleMobileNav()" aria-label="Открыть меню">☰</button>
+
+        <nav class="main-nav" id="mainNav">
+          <a href="#story" onclick="closeMobileNav()">О смене</a>
+          <a href="#projects" onclick="closeMobileNav()">Проектная часть</a>
+          <a href="#workshops" onclick="closeMobileNav()">Академия будущего</a>
+          <a href="#schedule" onclick="closeMobileNav()">Распорядок дня</a>
+          <a href="#kostroma" onclick="closeMobileNav()">Кострома</a>
+          <a href="#base" onclick="closeMobileNav()">База и фото</a>
+          <a href="#campfire" onclick="closeMobileNav()">Костер</a>
+          <a href="#team" onclick="closeMobileNav()">Наша команда</a>
+          <a href="#safety" onclick="closeMobileNav()">Безопасность</a>
+          <a href="#inclusions" onclick="closeMobileNav()">Условия</a>
+          <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. ГЛАВНЫЙ ЭКРАН (HERO) -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left-content">
+          <div class="hero-pill-row">
+            <span class="hero-pill-age">Возраст: 10–17 лет</span>
+            <span class="hero-pill-season">❄️ Зимнее приключение • с 3 по 9 января</span>
+          </div>
+
+          <h1 class="hero-title">
+            Тайны<br>
+            Северного<br>
+            Королевства
+          </h1>
+
+          <p class="hero-subtitle">
+            Зимняя смена лагеря <strong>«Город Надежда»</strong> для подростков 10–17 лет, которые любят физику, приключения и командные игры
+          </p>
+
+          <div class="hero-features-list">
+            <div class="hero-feature-item">
+              <span class="hero-chk">✓</span>
+              <span>Масштабная стратегическая игра и битва Великих Домов за Северный Трон</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-chk">✓</span>
+              <span>Инженерный проект: от идеи и расчётов до работающей модели</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-chk">✓</span>
+              <span>Трансфер на скоростном комфортабельном поезде «Ласточка» из Москвы в Кострому и обратно</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-chk">✓</span>
+              <span>Путешествие в зимнюю сказку</span>
+            </div>
+            <div class="hero-feature-item">
+              <span class="hero-chk">✓</span>
+              <span>База «Электроник» в сосновом бору, 6-ти разовое питание и вечерние костры</span>
+            </div>
+          </div>
+
+          <div class="hero-links-wrap">
+            <a href="#story" class="btn-nav btn-nav-gold">Смотреть программу</a>
+            <a href="#base" class="btn-nav btn-nav-ghost">О базе отдыха</a>
+          </div>
+        </div>
+
+        <div class="hero-characters-stage">
+          <img src="photo_characters.jpg" alt="Герои Северного Королевства" class="hero-characters-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'520\' viewBox=\'0 0 400 520\'><rect width=\'400\' height=\'520\' fill=\'%23101f38\'/><text x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'18\' font-family=\'sans-serif\'>👑 Совет Мастеров</text></svg>'">
+          <div class="hero-characters-caption">
+            <h4>Великий Собор Мастеров</h4>
+            <p>Битва Великих Домов за Северный Трон</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. БАР ПОКАЗАТЕЛЕЙ (TRUST BAR) -->
+  <div class="parameters-strip">
+    <div class="container">
+      <div class="parameters-grid">
+        <div class="parameter-box">
+          <div class="parameter-icon">🛡️</div>
+          <div>
+            <h4>Опыт с 1990 года</h4>
+            <p>35 лет традиций лагеря «Город Надежда»</p>
+          </div>
+        </div>
+
+        <div class="parameter-box">
+          <div class="parameter-icon">👥</div>
+          <div>
+            <h4>1 вожатый на 5 детей</h4>
+            <p>Максимальное внимание опытных вожатых</p>
+          </div>
+        </div>
+
+        <div class="parameter-box">
+          <div class="parameter-icon">🍲</div>
+          <div>
+            <h4>6-ти разовое питание</h4>
+            <p>Горячий рацион в просторной столовой</p>
+          </div>
+        </div>
+
+        <div class="parameter-box">
+          <div class="parameter-icon">⚡</div>
+          <div>
+            <h4>Инженерное мышление</h4>
+            <p>Ежедневные занятия</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ЛЕГЕНДА СЕВЕРНЫХ ЗЕМЕЛЬ (БОЛЬШОЕ НЕПРОЗРАЧНОЕ ФОТО + ОБТЕКАНИЕ ТЕКСТОМ) -->
+  <section id="story">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Сюжет смены</span>
+        <h2 class="sec-title">Легенда Северных Земель</h2>
+        <p class="sec-desc">
+          В древнем северном королевстве наступили сильнейшие холода. Подростки становятся участниками интерактивной ролевой стратегии, где командные решения влияют на финал смены.
+        </p>
+      </div>
+
+      <div class="story-editorial-container">
+        <div class="story-editorial-content">
+          <!-- Крупное непрозрачное фото (в 2 раза больше прежнего) -->
+          <div class="story-single-photo">
+            <img src="photo_story.jpg" alt="Герои Северного Королевства" onerror="this.src='photo_characters.jpg'">
+          </div>
+
+          <div class="story-editorial-text">
+            <p>
+              Нынешний король уже не справляется с холодами, принесенными северным ветром. Королевству отчаянно нужен преемник трона, а внутренние споры между великими домами не ведают конца.
+            </p>
+
+            <div class="story-editorial-quote">
+              «Южные жители столичного дворца по просьбе северного короля отправляются в далекие морозные просторы на Великий Собор Мастеров, чтобы остановить угрозу севера...»
+            </div>
+
+            <p>
+              Королевство окутано тайной. Как же они справлялись раньше и что за секреты скрывает король? Мастерам необходимо разгадать тайну прежде, чем северный ледяной ветер дойдет до столицы.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 карточки испытаний ровной строкой под текстом -->
+        <div class="story-mechanics-row">
+          <div class="story-mechanic-card">
+            <h5>⚔️ Испытания Великих Домов</h5>
+            <p>Стратегические квесты, поиск древних рун и турниры на свежем зимнем воздухе.</p>
+          </div>
+          <div class="story-mechanic-card">
+            <h5>🤝 Принцип «Единство непохожих»</h5>
+            <p>Инженер, танцор, художник и биолог объединяются ради общей победы.</p>
+          </div>
+          <div class="story-mechanic-card">
+            <h5>👑 Развязка за Северный Трон</h5>
+            <p>Кульминационный финал недели, определяющий будущее всего Королевства.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ПРОЕКТНАЯ ЧАСТЬ -->
+  <section id="projects" class="project-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">От идеи до работающего устройства</span>
+        <h2 class="sec-title">Проектная часть</h2>
+        <p class="sec-desc">Полный цикл инженерной подготовки на реальных задачах. Тестируем, исправляем ошибки, доводим до идеала.</p>
+      </div>
+      <div class="project-steps">
+        <article class="project-step"><span class="project-icon">💡</span><h3>1. Идея и проектирование</h3><p>Формулируем задачу, ищем инженерное решение.</p></article>
+        <article class="project-step"><span class="project-icon">🔌</span><h3>2. Схемотехника и печатные платы</h3><p>Собираем схемы, паяем и разводим платы.</p></article>
+        <article class="project-step"><span class="project-icon">🖨️</span><h3>3. 3D-моделирование и печать</h3><p>Создаём 3D-модели и печатаем детали.</p></article>
+        <article class="project-step"><span class="project-icon">💻</span><h3>4. Программирование микроконтроллеров</h3><p>Пишем код и оживляем устройства.</p></article>
+        <article class="project-step"><span class="project-icon">🧪</span><h3>5. Сборка и отладка</h3><p>Тестируем, исправляем ошибки, доводим до идеала.</p></article>
+        <article class="project-step"><span class="project-icon">🏆</span><h3>6. Презентация и запуск</h3><p>Защищаем идею, демонстрируем готовое устройство.</p></article>
+      </div>
+      <div class="project-gallery" aria-label="Фотографии проектной работы">
+        <div class="project-photo-placeholder"><img src="project_photo_1.jpg" alt="Фото проектной работы 1" onerror="this.parentElement.style.display='none'"></div>
+        <div class="project-photo-placeholder"><img src="project_photo_2.jpg" alt="Фото проектной работы 2" onerror="this.parentElement.style.display='none'"></div>
+        <div class="project-photo-placeholder"><img src="project_photo_3.jpg" alt="Фото проектной работы 3" onerror="this.parentElement.style.display='none'"></div>
+        <div class="project-photo-placeholder"><img src="project_photo_4.jpg" alt="Фото проектной работы 4" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- АКАДЕМИЯ БУДУЩЕГО -->
+  <section id="workshops" class="workshops-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Пробуем новое и раскрываем таланты</span>
+        <h2 class="sec-title">Академия будущего</h2>
+        <p class="sec-desc">Ребята также смогут посещать интересные занятия Академии будущего — от секции хоккея до вокала.</p>
+      </div>
+      <div class="workshops-deck">
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎭</span><h3>Театр</h3></div><div class="workshop-photo"><img src="workshop_theatre.jpg" alt="Фото занятий театром" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🧵</span><h3>Рукоделие</h3></div><div class="workshop-photo"><img src="workshop_handcraft.jpg" alt="Фото занятий рукоделием" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">💡</span><h3>Тренинг предпринимательства</h3></div><div class="workshop-photo"><img src="workshop_business.jpg" alt="Фото тренинга предпринимательства" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🧭</span><h3>Туризм</h3></div><div class="workshop-photo"><img src="workshop_tourism.jpg" alt="Фото туристических занятий" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">💃</span><h3>Студия танца</h3></div><div class="workshop-photo"><img src="workshop_dance.jpg" alt="Фото студии танца" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎬</span><h3>Медиа</h3></div><div class="workshop-photo"><img src="workshop_media.jpg" alt="Фото медиа-студии" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🏒</span><h3>Хоккей</h3></div><div class="workshop-photo"><img src="workshop_hockey.jpg" alt="Фото занятий хоккеем" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎤</span><h3>Вокал</h3></div><div class="workshop-photo"><img src="workshop_vocal.jpg" alt="Фото занятий вокалом" loading="lazy" onerror="this.style.display='none'"></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. РАСПОРЯДОК ДНЯ В СМЕНЕ -->
+
+  <section id="schedule">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Ритм лагерной жизни</span>
+        <h2 class="sec-title">Распорядок дня в смене</h2>
+        <p class="sec-desc">
+          Гармоничный баланс занятий Академии будущего, активностей на морозном воздухе и уютных вечерних традиций.
+        </p>
+      </div>
+
+      <div class="schedule-deck">
+        <div class="schedule-item-card">
+          <span class="schedule-time-badge">08:30 – 09:30</span>
+          <h4>Бодрое утро</h4>
+          <p>Зарядка на свежем воздухе или в зале, гигиена и сытный горячий завтрак в столовой базы.</p>
+        </div>
+
+        <div class="schedule-item-card featured">
+          <span class="schedule-time-badge">10:00 – 10:30</span>
+          <h4>Традиция ПЧП</h4>
+          <p>«Полчаса песни под гитару» — общий лагерный сбор, любимые песни и душевный настрой на день.</p>
+        </div>
+
+        <div class="schedule-item-card featured">
+          <span class="schedule-time-badge">10:30 – 13:30</span>
+          <h4>Проф-интенсив</h4>
+          <p>Инженерный проект: от идеи и расчётов до работающей модели. Также — занятия Академии будущего: театр, рукоделие, предпринимательство, туризм, танцы, медиа, хоккей и вокал.</p>
+        </div>
+
+        <div class="schedule-item-card">
+          <span class="schedule-time-badge">13:30 – 15:30</span>
+          <h4>Обед и отдых</h4>
+          <p>Обед и подготовка к большой игре</p>
+        </div>
+
+        <div class="schedule-item-card featured">
+          <span class="schedule-time-badge">15:30 – 18:30</span>
+          <h4>Большая игра</h4>
+          <p>«Тайна Зимнего Королевства»! Снежные квесты, стратегия Домов и испытания на улице.</p>
+        </div>
+
+        <div class="schedule-item-card">
+          <span class="schedule-time-badge">19:00 – 22:00</span>
+          <h4>Вечер и огоньки</h4>
+          <p>Ужин, вечернее мероприятие, отрядные свечки в Домах, подведение итогов дня и отбой</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ВЫЕЗД В КОСТРОМУ (ПЕРЕНЕСЕН: СРАЗУ ПОСЛЕ РАСПОРЯДКА ДНЯ) -->
+  <section id="kostroma" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Большая экспедиция</span>
+        <h2 class="sec-title">Путешествие в сказочную Кострому</h2>
+        <p class="sec-desc">
+          В рамках глобального сюжета смены участники отправляются в старинный город на Волге, хранящий царскую историю и сказочные традиции.
+        </p>
+      </div>
+
+      <div class="trip-deck">
+        <!-- 1. Резиденция Снегурочки -->
+        <div class="trip-card">
+          <div class="trip-photo-frame">
+            <span class="trip-photo-badge">Кострома</span>
+            <img src="photo_kostroma_snegurochka.jpg" alt="Резиденция Снегурочки" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\' viewBox=\'0 0 400 200\'><rect width=\'400\' height=\'200\' fill=\'%230a172c\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'36\'>❄️</text><text x=\'50%25\' y=\'68%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Терем Снегурочки</text></svg>'">
+          </div>
+          <div class="trip-card-content">
+            <h4>Резиденция Снегурочки</h4>
+            <p>Встреча с хранительницей зимы в ее тереме, знакомство с северными преданиями и ледяными сказочными традициями.</p>
+          </div>
+        </div>
+
+        <!-- 2. Лосиная ферма -->
+        <div class="trip-card">
+          <div class="trip-photo-frame">
+            <span class="trip-photo-badge">Заповедник</span>
+            <img src="photo_kostroma_moose.jpg" alt="Лосиная ферма" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\' viewBox=\'0 0 400 200\'><rect width=\'400\' height=\'200\' fill=\'%230a172c\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'36\'>🦌</text><text x=\'50%25\' y=\'68%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Сумароковская ферма</text></svg>'">
+          </div>
+          <div class="trip-card-content">
+            <h4>Лосиная ферма</h4>
+            <p>Сумароковский заповедник: встреча с лесными исполинами в зимнем лесу и кормление дружелюбных лосей морковью.</p>
+          </div>
+        </div>
+
+        <!-- 3. Ипатьевский монастырь -->
+        <div class="trip-card">
+          <div class="trip-photo-frame">
+            <span class="trip-photo-badge">История</span>
+            <img src="photo_kostroma_monastery.jpg" alt="Ипатьевский монастырь" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\' viewBox=\'0 0 400 200\'><rect width=\'400\' height=\'200\' fill=\'%230a172c\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'36\'>🏛️</text><text x=\'50%25\' y=\'68%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Ипатьевский монастырь</text></svg>'">
+          </div>
+          <div class="trip-card-content">
+            <h4>Ипатьевский монастырь</h4>
+            <p>Колыбель династии Романовых. Экскурсия по древним боярским палатам и погружение в живую историю Российского государства.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. БАЗА «ЭЛЕКТРОНИК» (2–5 МЕСТ) -->
+  <section id="base">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Комфорт и природа</span>
+        <h2 class="sec-title">Оздоровительный лагерь «Электроник»</h2>
+        <p class="sec-desc">
+          Охраняемая благоустроенная база в окружении хвойного соснового массива на берегу заснеженной реки.
+        </p>
+      </div>
+
+      <div class="base-gallery-grid">
+        <div class="base-photo-slot">
+          <img src="photo_aerial.jpg" alt="Панорама базы Электроник зимой" onerror="this.src='photo_alley.jpg'">
+          <div class="base-slot-tag">🌲 Панорама базы с высоты</div>
+        </div>
+
+        <div class="base-photo-slot">
+          <img src="photo_building_festive.jpg" alt="Праздничный жилой корпус базы" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'><rect width=\'400\' height=\'250\' fill=\'%23101f38\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'28\'>🏢</text><text x=\'50%25\' y=\'65%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Праздничный жилой корпус</text></svg>'">
+          <div class="base-slot-tag">🏢 Теплый жилой корпус</div>
+        </div>
+
+        <div class="base-photo-slot">
+          <img src="photo_room.jpg" alt="Уютные номера проживания 2-5 мест" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'><rect width=\'400\' height=\'250\' fill=\'%23101f38\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'28\'>🛏️</text><text x=\'50%25\' y=\'65%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Уютные номера 2-5 мест</text></svg>'">
+          <div class="base-slot-tag">🛏️ Уютные номера 2–5 мест</div>
+        </div>
+
+        <div class="base-photo-slot">
+          <img src="photo_canteen.jpg" alt="Просторная столовая базы" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'250\' viewBox=\'0 0 400 250\'><rect width=\'400\' height=\'250\' fill=\'%23101f38\'/><text x=\'50%25\' y=\'45%25\' text-anchor=\'middle\' fill=\'%2300c2ff\' font-size=\'28\'>🍲</text><text x=\'50%25\' y=\'65%25\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'13\' font-family=\'sans-serif\'>Просторная светлая столовая</text></svg>'">
+          <div class="base-slot-tag">🍲 Просторная светлая столовая</div>
+        </div>
+
+        <div class="base-photo-slot">
+          <img src="photo_gazebos.jpg" alt="Лесные зимние беседки">
+          <div class="base-slot-tag">🛖 Лесные зимние беседки</div>
+        </div>
+
+        <div class="base-photo-slot">
+          <img src="photo_alley.jpg" alt="Атмосферный каток">
+          <div class="base-slot-tag">⛸️ Атмосферный каток</div>
+        </div>
+      </div>
+
+      <div class="base-specs-row">
+        <div class="base-spec-card">
+          <div class="base-spec-ico">🛏️</div>
+          <h5>Теплые корпуса</h5>
+          <p>2–5 местное размещение с отоплением и сушилками</p>
+        </div>
+        <div class="base-spec-card">
+          <div class="base-spec-ico">🍲</div>
+          <h5>6-ти разовое питание</h5>
+          <p>Сбалансированный рацион от шеф-поваров</p>
+        </div>
+        <div class="base-spec-card">
+          <div class="base-spec-ico">🎭</div>
+          <h5>Актовый зал</h5>
+          <p>Сцена и свет для репетиций и мероприятий</p>
+        </div>
+        <div class="base-spec-card">
+          <div class="base-spec-ico">⛸️</div>
+          <h5>Спорт и каток</h5>
+          <p>Оборудованные площадки и снежные трассы</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. КОСТРОВАЯ ПОЛЯНА В ЛЕСУ -->
+  <section id="campfire" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="campfire-story-deck">
+        <div class="campfire-img-box">
+          <img src="photo_fire.jpg" alt="Костровая поляна в лесу" onerror="this.src='photo_alley.jpg'">
+        </div>
+
+        <div class="campfire-details">
+          <span class="sec-eyebrow" style="color: var(--color-accent-gold);">Лагерная душа</span>
+          <h3>Костровая поляна в лесу</h3>
+          <p>
+            Знаменитое лобное место базы, укрытое среди сосен. Здесь под треск дров звучат аккорды гитар, рождаются самые искренние разговоры и подводятся итоги каждого дня в атмосфере тепла и дружбы.
+          </p>
+          <div style="font-size: 14px; color: #dbe7f7; line-height: 1.8;">
+            🔥 Вечерние лагерные костры дружбы<br>
+            ✨ Отрядные свечки и душевные огоньки Домов<br>
+            🎸 Традиция ПЧП под звездным зимним небом
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПЕДАГОГИЧЕСКИЙ СОСТАВ -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Педагогический состав</span>
+        <h2 class="sec-title">Команда проекта</h2>
+      </div>
+      <p class="team-intro">Руководители и наставники, которые ведут программу смены и сопровождают проектные команды.</p>
+      <div class="mentor-grid">
+        <article class="mentor-card"><h3>Евгений Любимов</h3><span class="mentor-role">Руководитель программы</span><p>Руководитель программы Энергетических смен. Педагог высшей категории.<br><br>Победитель в номинации «социально-педагогическое направление» Всероссийского конкурса «Сердце отдаю детям».</p></article>
+        <article class="mentor-card"><h3>Татьяна Коновалова</h3><span class="mentor-role">Заместитель руководителя программы</span><p>Заместитель руководителя программы Энергетических смен.<br><br>Победитель ПНПО, получатель трёх грантов в сфере образования, многолетний опыт проведения научно-технических лагерей.<br><br>Руководитель центра дополнительного образования «МИФ».</p></article>
+        <article class="mentor-card"><h3>Алексей Тымчиков</h3><span class="mentor-role">Наставник проектов</span><p>Лауреат премии Правительства РФ в области образования (организация всероссийских технологических отрядов — ВДЦ «Орлёнок»).<br><br>Почётная грамота Президента РФ за подготовку национальной сборной по профессиональным квалификациям.<br><br>Благодарности Президента РФ за победы на чемпионатах Мира и Европы по профессиональным квалификациям WS.</p></article>
+        <article class="mentor-card"><h3>Константин Люстров</h3><span class="mentor-role">Проектный наставник</span><p>Учитель высшей категории, эксперт по олимпиадному программированию.</p></article>
+        <article class="mentor-card"><h3>Игорь Коваленко</h3><span class="mentor-role">Наставник</span><p>Учитель высшей категории, специалист по алгоритмам и структурному программированию.</p></article>
+        <article class="mentor-card"><h3>Олег Махонин</h3><span class="mentor-role">Наставник</span><p>Генеральный директор ГК Аэроксо.</p></article>
+        <article class="mentor-card"><h3>Елизавета Никифорова</h3><span class="mentor-role">Наставник</span><p>Аналитик больших данных, специалист по машинному обучению и анализу данных.</p></article>
+        <article class="mentor-card"><h3>Виолетта Морозенко</h3><span class="mentor-role">Наставник</span><p>Кандидат физико-математических наук, автор научных публикаций и методических пособий.</p></article>
+        <article class="mentor-card"><h3>Никита Арефьев</h3><span class="mentor-role">Наставник</span><p>Инженер-программист Аэроксо, инженер-разработчик силовой электроники и мехатронных систем.</p></article>
+        <article class="mentor-card"><h3>Константин Макшанчиков</h3><span class="mentor-role">Наставник</span><p>Кандидат экономических наук, специалист по математическому моделированию.</p></article>
+      </div>
+      <p class="team-footer-label">Педагогический состав — «Лагерь Город Надежда»</p>
+    </div>
+  </section>
+
+  <!-- 10. БЕЗОПАСНОСТЬ И ЗДОРОВЬЕ УЧАСТНИКОВ -->
+  <section id="safety">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Стандарты заботы</span>
+        <h2 class="sec-title">Безопасность и здоровье участников</h2>
+        <p class="sec-desc">Мы обеспечиваем максимальный уровень комфорта и педагогического контроля на протяжении всей смены.</p>
+      </div>
+
+      <div class="safety-standards-deck">
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">🛡️</div>
+          <h4>Охраняемый периметр 24/7</h4>
+          <p>Закрытая огороженная территория базы, постоянный пост охраны на КПП и видеонаблюдение.</p>
+        </div>
+
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">👥</div>
+          <h4>1 вожатый на 5 детей</h4>
+          <p>Высочайший коэффициент внимания. Вожатые лагеря «Город Надежда» непрерывно сопровождают подростков.</p>
+        </div>
+
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">🩺</div>
+          <h4>Медицинский пункт</h4>
+          <p>Круглосуточное дежурство медицинского персонала, готового оказать квалифицированную помощь.</p>
+        </div>
+
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">📱</div>
+          <h4>Ежедневные фотоотчеты</h4>
+          <p>Родительский канал с яркими фотографиями и видеозаписями всех активностей каждого дня смены.</p>
+        </div>
+
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">🍲</div>
+          <h4>6-ти разовое питание</h4>
+          <p>Сбалансированный горячий рацион с возможностью добавки и строгим контролем качества продуктов.</p>
+        </div>
+
+        <div class="safety-standard-tile">
+          <div class="safety-standard-ico">🌡️</div>
+          <h4>Сушильные комнаты и теплые корпуса</h4>
+          <p>Возможность высушить вещи после игр и активностей на улице</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. УСЛОВИЯ УЧАСТИЯ И ЧТО ВХОДИТ -->
+  <section id="inclusions">
+    <div class="container">
+      <div class="inclusions-deck">
+        <div class="inclusions-grid">
+          <div class="inclusions-info">
+            <span class="sec-eyebrow">Информация о путевке</span>
+            <h3>Условия участия и программа</h3>
+            <p>
+              Программа разработана по системе «всё включено», чтобы участники полностью сосредоточились на физике, игре и дружбе.
+            </p>
+
+            <div class="price-status-panel">
+              <div class="price-status-lbl">Финансовый регламент</div>
+              <div class="price-status-val">Стоимость путевки 49 000 рублей</div>
+              <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 6px;">
+                Официальная информация об открытии бронирования будет опубликована в ВК-группе лагеря «Город Надежда». <a href="https://vk.ru/gorodnadezhda" target="_blank" rel="noopener noreferrer">https://vk.ru/gorodnadezhda</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="package-features-list">
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>Проживание:</strong> 7 дней в теплых отапливаемых корпусах (2–5 мест) базы «Электроник».</div>
+            </div>
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>6-ти разовое питание:</strong> Сбалансированное горячее меню в столовой базы.</div>
+            </div>
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>Трансфер из Москвы и обратно:</strong> поездка на скоростном комфортабельном поезде «Ласточка» по маршруту Москва — Кострома — Москва с официальным оформлением детской перевозки в РЖД. От железнодорожного вокзала до базы «Электроник» и обратно организуется трансфер на тёплых туристических автобусах, согласованный с ГИБДД.</div>
+            </div>
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>Экскурсионный пакет:</strong> Выездная поездка в Кострому (Снегурочка, лоси, Ипатьевский монастырь).</div>
+            </div>
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>Игровой реквизит:</strong> Атрибутика Домов, карты, свитки и памятный сувенир смены.</div>
+            </div>
+            <div class="package-feature">
+              <span>✓</span>
+              <div><strong>Реальный прототип по итогам проектов.</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) -->
+  <section id="faq" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Частые вопросы</span>
+        <h2 class="sec-title">Информация для родителей</h2>
+      </div>
+
+      <div class="faq-stack">
+        <div class="faq-card-item" onclick="toggleFaq(this)">
+          <div class="faq-card-question">Как организован трансфер на «Ласточке»?</div>
+          <div class="faq-card-answer">
+            Трансфер осуществляется на скоростном комфортабельном поезде «Ласточка» из Москвы в Кострому и обратно с официальным оформлением детской перевозки в РЖД. От железнодорожного вокзала до базы «Электроник» и обратно организуется перевозка на тёплых туристических автобусах, согласованная с ГИБДД.
+          </div>
+        </div>
+        <div class="faq-card-item" onclick="toggleFaq(this)">
+          <div class="faq-card-question">Кто может стать участником смены?</div>
+          <div class="faq-card-answer">
+            Программа ориентирована на подростков 10–17 лет, которым интересны творчество, командные игры и новые впечатления.
+          </div>
+        </div>
+
+        <div class="faq-card-item" onclick="toggleFaq(this)">
+          <div class="faq-card-question">Как распределяются участники по Домам (отрядам)?</div>
+          <div class="faq-card-answer">
+            По принципу лагеря «Город Надежда» — «Единство непохожих». Ребята из разных направлений (танцоры, робототехники, спортсмены, художники) объединяются, учатся командному взаимодействию и находят новых верных друзей.
+          </div>
+        </div>
+
+        <div class="faq-card-item" onclick="toggleFaq(this)">
+          <div class="faq-card-question">Что необходимо взять с собой из зимней одежды?</div>
+          <div class="faq-card-answer">
+            Теплый непромокаемый зимний костюм (мембранная куртка и штаны), 2 пары непромокаемой зимней обуви, термобелье, шапка, шарф, несколько пар теплых варежек/перчаток, удобная сменная одежда и обувь для помещений, а также нарядная одежда для вечерних событий.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ (FOOTER) -->
+  <footer>
+    <div class="container">
+      <div class="footer-structure">
+        <div>
+          <div class="footer-logos-row">
+            <div class="brand-substrate">
+              <img src="logo_nadejda.png" alt="Город Надежда" class="brand-logo-pic" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <svg class="brand-logo-fallback-svg" style="display:none;" viewBox="0 0 40 40">
+                <rect width="40" height="40" rx="8" fill="#ffffff"/>
+                <path d="M10 14h20v14c0 6-10 10-10 10s-10-4-10-10V14z" fill="#1b3558" stroke="#00c2ff" stroke-width="1.5"/>
+                <path d="M12 8h4v4h-4zM18 8h4v4h-4zM24 8h4v4h-4z" fill="#ffb703"/>
+                <circle cx="20" cy="22" r="4" fill="#ffb703"/>
+              </svg>
+            </div>
+            
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 360px;">
+            «Тайны Северного Королевства» — зимняя ролевая смена лагеря «Город Надежда» для подростков 10–17 лет.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Навигация</h5>
+          <ul class="footer-nav-list">
+            <li><a href="#story">О смене</a></li>
+            <li><a href="#schedule">Распорядок дня</a></li>
+            <li><a href="#kostroma">Поездка в Кострому</a></li>
+            <li><a href="#base">База «Электроник»</a></li>
+            <li><a href="#campfire">Костровая поляна</a></li>
+            <li><a href="#team">Наша команда</a></li>
+            <li><a href="#safety">Безопасность</a></li>
+            <li><a href="#inclusions">Условия участия</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="footer-col-title">Организация программы</h5>
+          <ul class="footer-nav-list">
+            <li>Организатор: лагерь «Город Надежда» (Осн. 1990)</li>
+            <li style="color: var(--color-accent-gold); font-weight: 700; margin-top: 6px;">«Единство непохожих»</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-baseline">
+        <div>© 2026–2027 Лагерь «Город Надежда». Все права защищены.</div>
+        <div style="color: var(--color-primary);">Зимняя смена «Тайны Северного Королевства»</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- СКРИПТЫ: FAQ, МОБИЛЬНОЕ МЕНЮ И СНЕГОПАД -->
+  <script>
+    // FAQ Аккордеон
+    function toggleFaq(element) {
+      const isActive = element.classList.contains('active');
+      document.querySelectorAll('.faq-card-item').forEach(item => item.classList.remove('active'));
+      if (!isActive) {
+        element.classList.add('active');
+      }
+    }
+
+    // Мобильное меню
+    function toggleMobileNav() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('active');
+    }
+
+    function closeMobileNav() {
+      const nav = document.getElementById('mainNav');
+      if (window.innerWidth <= 1024) {
+        nav.classList.remove('active');
+      }
+    }
+
+    // Canvas Снегопад
+    const canvas = document.getElementById('snow-canvas');
+    const ctx = canvas.getContext('2d');
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    });
+
+    const flakes = [];
+    const count = window.innerWidth < 768 ? 35 : 65;
+    for (let i = 0; i < count; i++) {
+      flakes.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.0 + 0.8,
+        vy: Math.random() * 1.0 + 0.5,
+        vx: (Math.random() - 0.5) * 0.4,
+        alpha: Math.random() * 0.6 + 0.2
+      });
+    }
+
+    function renderSnow() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < flakes.length; i++) {
+        const f = flakes[i];
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(230, 245, 255, ${f.alpha})`;
+        ctx.fill();
+
+        f.y += f.vy;
+        f.x += f.vx;
+
+        if (f.y > h) { f.y = -5; f.x = Math.random() * w; }
+        if (f.x > w) f.x = 0;
+        if (f.x < 0) f.x = w;
+      }
+      requestAnimationFrame(renderSnow);
+    }
+    renderSnow();
+  </script>
+</body>
+</html>
